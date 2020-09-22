@@ -13,14 +13,30 @@ We help companies build, run, deploy and scale software and infrastructure by em
 
 A terraform module to deploy a node problem detector on Amazon EKS cluster.
 
+## Related Projects
+
+Check out these related projects.
+
+- [terraform-aws-eks-calico](https://github.com/lablabs/terraform-aws-eks-calico)
+- [terraform-aws-eks-external-dns](https://github.com/lablabs/terraform-aws-eks-external-dns)
+- [terraform-aws-eks-cluster-autoscaler](https://github.com/lablabs/terraform-aws-eks-cluster-autoscaler)
+- [terraform-aws-eks-alb-ingress](https://github.com/lablabs/terraform-aws-eks-alb-ingress)
+- [terraform-aws-eks-prometheus-node-exporter](https://github.com/lablabs/terraform-aws-eks-prometheus-node-exporter)
+- [terraform-aws-eks-kube-state-metrics](https://github.com/lablabs/terraform-aws-eks-kube-state-metrics)
+
+## Examples
+
+See [Basic example](examples/basic/README.md) for further information.
+
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| terraform | ~> 0.12.0 |
-| aws | ~> 2.0 |
-| helm | ~> 1.2 |
+| terraform | >= 0.12.26, < 0.14.0 |
+| aws | >= 2.0, < 4.0 |
+| helm | >= 1.0, < 1.4.0 |
+| kubernetes | >=1.10.0 |
 
 ## Inputs
 
