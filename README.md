@@ -33,10 +33,21 @@ See [Basic example](examples/basic/README.md) for further information.
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.26, < 0.14.0 |
-| aws | >= 2.0, < 4.0 |
-| helm | >= 1.0, < 1.4.0 |
-| kubernetes | >=1.10.0 |
+| terraform | >= 0.13 |
+| aws | >= 2.0 |
+| helm | >= 1.0 |
+| kubernetes | >= 1.10 |
+
+## Modules
+
+No Modules.
+
+## Resources
+
+| Name |
+|------|
+| [helm_release](https://registry.terraform.io/providers/hashicorp/helm/latest/docs/resources/release) |
+| [kubernetes_namespace](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs/resources/namespace) |
 
 ## Inputs
 
@@ -44,9 +55,9 @@ See [Basic example](examples/basic/README.md) for further information.
 |------|-------------|------|---------|:--------:|
 | enabled | Variable indicating whether deployment is enabled | `bool` | `true` | no |
 | helm\_chart\_name | Helm chart name to be installed | `string` | `"node-problem-detector"` | no |
-| helm\_chart\_version | Version of the Helm chart | `string` | `"1.7.6"` | no |
+| helm\_chart\_version | Version of the Helm chart | `string` | `"2.0.1"` | no |
 | helm\_release\_name | Helm release name | `string` | `"node-problem-detector"` | no |
-| helm\_repo\_url | Helm repository | `string` | `"https://kubernetes-charts.storage.googleapis.com"` | no |
+| helm\_repo\_url | Helm repository | `string` | `"https://charts.deliveryhero.io/"` | no |
 | k8s\_namespace | The K8s namespace in which the node-problem-detector service account has been created | `string` | `"kube-system"` | no |
 | mod\_dependency | Dependence variable binds all AWS resources allocated by this module, dependent modules reference this variable | `bool` | `null` | no |
 | settings | Additional settings which will be passed to the Helm chart values, see https://hub.helm.sh/charts/stable/node-problem-detector | `map(any)` | `{}` | no |
@@ -54,7 +65,6 @@ See [Basic example](examples/basic/README.md) for further information.
 ## Outputs
 
 No output.
-
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 ## Contributing and reporting issues
