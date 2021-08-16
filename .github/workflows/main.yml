@@ -19,33 +19,28 @@ jobs:
       - uses: actions/setup-python@v2
         name: "SETUP: Python"
 
-      # - uses: actions/cache@v2.0.0
-      #   id: cache-terraform-docs
-      #   name: "CACHE: terraform-docs"
-      #   with:
-      #     path: |
-      #       ~/terraform-docs/bin/
-      #     key: ${{ runner.os }}-terraform_docs-${{ env.TERRAFORM_DOCS_VERSION }}
-      #     restore-keys: |
-      #       ${{ runner.os}}-terraform_docs-
-
-      # - shell: bash
-      #   name: "INSTALL: terraform-docs"
-      #   if: steps.cache-terraform-docs.output.cache-hit != 'true'
-      #   run: |
-      #     wget https://github.com/terraform-docs/terraform-docs/releases/download/${{ env.TERRAFORM_DOCS_VERSION }}/terraform-docs-${{ env.TERRAFORM_DOCS_VERSION }}-linux-amd64.tar.gz
-      #     tar xvzf terraform-docs-${{ env.TERRAFORM_DOCS_VERSION }}-linux-amd64.tar.gz
-      #     mkdir -p ~/terraform-docs/bin/
-      #     install terraform-docs ~/terraform-docs/bin/
-
-      # - shell: bash
-      #   name: "SETUP: terraform-docs path"
-      #   run: echo '~/terraform-docs/bin/' >> $GITHUB_PATH
-
-      - uses: lablabs/setup-terraform-docs@v1.0.4
-        name: Setup Terraform docs
+      - uses: actions/cache@v2.0.0
+        id: cache-terraform-docs
+        name: "CACHE: terraform-docs"
         with:
-          terraform_docs_version: ${{ env.TERRAFORM_DOCS_VERSION }}
+          path: |
+            ~/terraform-docs/bin/
+          key: ${{ runner.os }}-terraform_docs-${{ env.TERRAFORM_DOCS_VERSION }}
+          restore-keys: |
+            ${{ runner.os}}-terraform_docs-
+
+      - shell: bash
+        name: "INSTALL: terraform-docs"
+        if: steps.cache-terraform-docs.output.cache-hit != 'true'
+        run: |
+          wget https://github.com/terraform-docs/terraform-docs/releases/download/${{ env.TERRAFORM_DOCS_VERSION }}/terraform-docs-${{ env.TERRAFORM_DOCS_VERSION }}-linux-amd64.tar.gz
+          tar xvzf terraform-docs-${{ env.TERRAFORM_DOCS_VERSION }}-linux-amd64.tar.gz
+          mkdir -p ~/terraform-docs/bin/
+          install terraform-docs ~/terraform-docs/bin/
+
+      - shell: bash
+        name: "SETUP: terraform-docs path"
+        run: echo '~/terraform-docs/bin/' >> $GITHUB_PATH
 
       - uses: actions/checkout@v2
         name: Checkout source code
