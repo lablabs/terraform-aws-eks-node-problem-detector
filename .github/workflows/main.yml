@@ -42,7 +42,7 @@ jobs:
       #   name: "SETUP: terraform-docs path"
       #   run: echo '~/terraform-docs/bin/' >> $GITHUB_PATH
 
-      - uses: lablabs/setup-terraform-docs@v1
+      - uses: lablabs/setup-terraform-docs@v1.0.4
         name: Setup Terraform docs
         with:
           terraform_docs_version: ${{ env.TERRAFORM_DOCS_VERSION }}
