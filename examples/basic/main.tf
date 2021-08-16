@@ -25,8 +25,7 @@ module "eks_workers" {
 
   cluster_certificate_authority_data = module.eks_cluster.eks_cluster_certificate_authority_data
   cluster_endpoint                   = module.eks_cluster.eks_cluster_endpoint
-  cluster_name                       = module.eks_cluster.eks_cluster_id
-  cluster_security_group_id          = module.eks_cluster.security_group_id
+  cluster_name                       = "node-problem-detector"
   instance_type                      = "t3.medium"
   max_size                           = 1
   min_size                           = 1
@@ -36,11 +35,10 @@ module "eks_workers" {
   associate_public_ip_address = true
 }
 
-# Use the module:
-
 module "node_problem_detector" {
   source = "../../"
 
+  cluster_name = module.eks_cluster.eks_cluster_id
   settings = {
     "resources.limits.cpu" : "50m"
     "resources.limits.memory" : "50Mi"
