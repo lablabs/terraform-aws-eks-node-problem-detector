@@ -64,7 +64,7 @@ No modules.
 | <a name="input_k8s_namespace"></a> [k8s\_namespace](#input\_k8s\_namespace) | The K8s namespace in which the node-problem-detector service account has been created | `string` | `"kube-system"` | no |
 | <a name="input_mod_dependency"></a> [mod\_dependency](#input\_mod\_dependency) | Dependence variable binds all AWS resources allocated by this module, dependent modules reference this variable | `bool` | `null` | no |
 | <a name="input_settings"></a> [settings](#input\_settings) | Additional settings which will be passed to the Helm chart values, see https://hub.helm.sh/charts/stable/node-problem-detector | `map(any)` | `{}` | no |
-| <a name="input_values"></a> [values](#input\_values) | Additional yaml encoded values which will be passed to the Helm chart, see https://hub.helm.sh/charts/stable/cluster-autoscaler | `string` | `""` | no |
+| <a name="input_values"></a> [values](#input\_values) | Additional yaml encoded values which will be passed to the Helm chart | `string` | `""` | no |
 
 ## Outputs
 
