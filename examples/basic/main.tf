@@ -38,7 +38,6 @@ module "eks_workers" {
 module "node_problem_detector" {
   source = "../../"
 
-  cluster_name = module.eks_cluster.eks_cluster_id
   settings = {
     "resources.limits.cpu" : "50m"
     "resources.limits.memory" : "50Mi"
