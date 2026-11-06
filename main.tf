@@ -11,7 +11,7 @@ locals {
     name      = "node-problem-detector"
     namespace = "kube-system"
 
-    helm_chart_version = "2.4.2"
+    helm_chart_version = "2.4.2" # 1.35.1
     helm_repo_url      = "https://charts.deliveryhero.io/"
   }
 
